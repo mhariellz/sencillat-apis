@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // <--- ¡Aquí vinculamos el CSS limpio!
+import './App.css';
 
 function App() {
-  // Lógica (JavaScript)
   const [resumenRest, setResumenRest] = useState(null);
   const [bitacoraEventos, setBitacoraEventos] = useState([]);
   const [loadingRest, setLoadingRest] = useState(true);
@@ -53,7 +52,6 @@ function App() {
       });
 
       if (respuesta.ok) {
-        alert(`¡Gasto registrado! Evento enviado al Broker.`);
         setDescripcion('');
         setMonto('');
         cargarDatos();
@@ -63,13 +61,12 @@ function App() {
     }
   };
 
-  // Estructura (HTML / JSX) con Clases CSS limpias
   return (
     <div className="dashboard-container">
       
       <header className="main-header">
-        <h1 className="main-title">🔲 SencillaT — Panel de Control Arquitectura DDD v2.0</h1>
-        <p className="main-subtitle">Monitoreo interactivo de flujos tácticos y Bounded Contexts cruzando fronteras.</p>
+        <h1 className="main-title">🐙 SencillaT — Panel de Control Core v2.0</h1>
+        <p className="main-subtitle">Sincronización táctica interactiva integrada con la interfaz de tu línea gráfica oficial.</p>
       </header>
 
       <div className="grid-layout">
@@ -77,37 +74,37 @@ function App() {
         <div>
           {/* Tarjeta de Cuentas */}
           <div className="card">
-            <h2 className="card-title-accounts">🟢 Contexto: Gestión de Cuentas Bancarias (REST)</h2>
+            <h2 className="card-title-accounts">🏦 Bounded Context: Gestión de Cuentas (REST)</h2>
             {loadingRest ? (
-              <p>Cargando saldos consolidados...</p>
+              <p className="text-muted">Leyendo saldos consolidados Open Banking...</p>
             ) : resumenRest ? (
               <div>
                 <div className="total-amount">
                   S/. {resumenRest.saldoTotal?.toLocaleString('es-PE', { minimumFractionDigits: 2 })}
                 </div>
-                <p className="text-muted">Saldos unificados multibanca via Open Banking.</p>
+                <p className="text-muted">Balance total homologado en tiempo real desde el ecosistema multibanca.</p>
               </div>
             ) : (
-              <p className="text-danger">⚠️ API REST fuera de línea en el puerto 3001.</p>
+              <p className="text-danger">⚠️ API REST fuera de línea (Verifica el puerto :3001)</p>
             )}
           </div>
 
-          {/* Formulario de Control */}
+          {/* Formulario de Simulación */}
           <div className="card">
-            <h2 className="card-title-trigger">⚡ Disparador: Simular Registro de Transacción</h2>
+            <h2 className="card-title-trigger">🚀 Disparador: Registrar Transacción en la App</h2>
             <form onSubmit={manejarRegistroGasto}>
               <div className="form-group">
-                <label className="form-label">Comercio / Descripción:</label>
+                <label className="form-label">Establecimiento / Detalle de Gasto:</label>
                 <input type="text" className="form-input" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} required />
               </div>
               
               <div className="form-row">
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">Monto (S/.):</label>
+                  <label className="form-label">Monto de Operación (S/.):</label>
                   <input type="number" step="0.01" className="form-input" value={monto} onChange={(e) => setMonto(e.target.value)} required />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">Banco de Origen:</label>
+                  <label className="form-label">Entidad Bancaria:</label>
                   <select className="form-select" value={banco} onChange={(e) => setBanco(e.target.value)}>
                     <option value="BCP">Banco BCP</option>
                     <option value="BBVA">BBVA Continental</option>
@@ -116,30 +113,30 @@ function App() {
                 </div>
               </div>
               
-              <button type="submit" className="btn-submit">Disparar Evento en Cadena</button>
+              <button type="submit" className="btn-submit">Publicar Evento de Dominio</button>
             </form>
           </div>
         </div>
 
         {/* Panel del Broker */}
         <div className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-          <h2 className="card-title-broker">📡 Broker Global: Bitácora Asíncrona de Eventos (:3004)</h2>
+          <h2 className="card-title-broker">📡 Bus de Eventos: Trazabilidad Global Asíncrona (:3004)</h2>
           <div className="events-log-container">
             {bitacoraEventos.length === 0 ? (
               <div className="event-empty-state">
-                <p style={{ fontSize: '3rem', margin: 0 }}>📦</p>
-                <p>Ningún evento de dominio ha cruzado las fronteras del sistema aún.</p>
+                <p style={{ fontSize: '3.5rem', margin: 0 }}>⚡</p>
+                <p style={{ marginTop: '12px', fontWeight: '500' }}>Esperando disparadores del dominio financiero...</p>
               </div>
             ) : (
               [...bitacoraEventos].reverse().map((evt) => (
                 <div key={evt.id} className="event-item">
                   <div className="event-item-header">
-                    <strong style={{ color: '#59359a' }}>{evt.nombre}</strong>
-                    <span style={{ fontSize: '0.8rem', color: '#6c757d' }}>{new Date(evt.timestamp).toLocaleTimeString()}</span>
+                    <strong>{evt.nombre}</strong>
+                    <span className="event-badge-time">{new Date(evt.timestamp).toLocaleTimeString()}</span>
                   </div>
-                  <div style={{ fontSize: '0.85rem', color: '#495057' }}>
-                    <strong>Origen:</strong> {evt.origen} <br />
-                    <strong>Datos Payload:</strong> {JSON.stringify(evt.datos)}
+                  <div className="event-payload-box">
+                    <strong>Contexto Emisor:</strong> {evt.origen} <br />
+                    <strong>Payload:</strong> {JSON.stringify(evt.datos, null, 2)}
                   </div>
                 </div>
               ))
