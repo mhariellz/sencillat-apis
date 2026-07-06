@@ -1,8 +1,3 @@
-/* Paleta de Colores Oficial SencillaT:
-   Acentuado Verde: #22c55e (Vibrante) y #16a34a (Core)
-   Fondo Oscuro Premium: #090d16 o Blanco Puro #ffffff con sombras suaves
-*/
-
 body {
   margin: 0;
   background-color: #f4f7f6;
@@ -12,12 +7,11 @@ body {
 
 .dashboard-container {
   padding: 40px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   max-width: 1300px;
   margin: 0 auto;
 }
 
-/* Encabezado Premium */
 .main-header {
   margin-bottom: 40px;
   padding-bottom: 20px;
@@ -28,15 +22,10 @@ body {
   margin: 0;
   font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #0f5132; /* Verde SencillaT */
+  color: #0f5132;
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.main-title span {
-  font-size: 2.5rem;
 }
 
 .main-subtitle {
@@ -45,82 +34,55 @@ body {
   font-size: 1.05rem;
 }
 
-/* Grilla Moderna */
 .grid-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 35px;
 }
 
-/* Tarjetas Estilo Glassmorphism / Lovable */
 .card {
   background: #ffffff;
   padding: 28px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px -2px rgba(15, 81, 50, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 20px -2px rgba(15, 81, 50, 0.06);
   border: 1px solid rgba(226, 232, 240, 0.8);
   margin-bottom: 30px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(15, 81, 50, 0.08);
 }
 
 .card-title-accounts {
   margin: 0 0 20px 0;
   font-size: 1.15rem;
-  font-weight: 700;
   color: #15803d;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .card-title-trigger {
   margin: 0 0 20px 0;
   font-size: 1.15rem;
-  font-weight: 700;
   color: #2563eb;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .card-title-broker {
   margin: 0 0 20px 0;
   font-size: 1.15rem;
-  font-weight: 700;
   color: #7c3aed;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-/* Visualización de Saldos */
 .total-amount {
   font-size: 2.8rem;
   font-weight: 800;
   color: #0f5132;
-  letter-spacing: -0.03em;
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
 }
 
 .text-muted {
   margin: 0;
   color: #64748b;
-  font-size: 0.95rem;
 }
 
 .text-danger {
   color: #ef4444;
-  font-weight: 500;
 }
 
-/* Formularios Elegantes */
 .form-group {
   margin-bottom: 18px;
 }
@@ -145,18 +107,7 @@ body {
   padding: 11px 14px;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: #0f172a;
   background-color: #f8fafc;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-input:focus, .form-select:focus {
-  outline: none;
-  border-color: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-  background-color: #fff;
 }
 
 .btn-submit {
@@ -167,27 +118,13 @@ body {
   border: none;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
-  transition: transform 0.1s, box-shadow 0.2s;
 }
 
-.btn-submit:hover {
-  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.3);
-  background: linear-gradient(135deg, #15803d 0%, #0c4228 100%);
-}
-
-.btn-submit:active {
-  transform: scale(0.99);
-}
-
-/* Bitácora de Eventos (Efecto Feed de Notificaciones) */
 .events-log-container {
   flex: 1;
   overflow-y: auto;
   max-height: 480px;
-  padding-right: 8px;
 }
 
 .event-empty-state {
@@ -195,55 +132,6 @@ body {
   color: #94a3b8;
   padding: 60px 20px;
 }
-
-.event-item {
-  border-left: 4px solid #7c3aed;
-  background-color: #f8f5ff;
-  padding: 16px;
-  border-radius: 0 12px 12px 0;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
-  border-top: 1px solid rgba(124, 58, 237, 0.05);
-  border-right: 1px solid rgba(124, 58, 237, 0.05);
-  border-bottom: 1px solid rgba(124, 58, 237, 0.05);
-}
-
-.event-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.event-item-header strong {
-  font-size: 0.95rem;
-  color: #6d28d9;
-}
-
-.event-badge-time {
-  font-size: 0.8rem;
-  color: #7c3aed;
-  background: #f3ebff;
-  padding: 2px 8px;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-.event-payload-box {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.45;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 6px;
-  border: 1px solid #f1f5f9;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* ==========================================================================
-   ESTILOS PREMIUM TRANSACCIONES USER-FRIENDLY (Adiós código plano)
-   ========================================================================== */
 
 .user-tx-card {
   display: flex;
@@ -254,16 +142,7 @@ body {
   border-radius: 14px;
   margin-bottom: 12px;
   border: 1px solid #f1f5f9;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.01);
   position: relative;
-  overflow: hidden;
-  transition: all 0.2s ease;
-}
-
-.user-tx-card:hover {
-  border-color: #cbd5e1;
-  background-color: #fafafa;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 
 .tx-icon-wrapper {
@@ -275,36 +154,26 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  flex-shrink: 0;
 }
 
 .tx-info-block {
   flex-grow: 1;
 }
 
-.tx-header-row {
+.tx-header-row, .tx-footer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
 }
 
 .tx-description {
   font-weight: 600;
-  font-size: 0.98rem;
   color: #1e293b;
 }
 
 .tx-amount-negative {
   font-weight: 700;
-  font-size: 1rem;
   color: #0f172a;
-}
-
-.tx-footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .tx-time {
@@ -312,50 +181,25 @@ body {
   color: #94a3b8;
 }
 
-/* Badges estilizados para Bancos de forma amigable */
 .tx-badge-banco {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 6px;
-  text-transform: uppercase;
 }
 
-.bank-bcp {
-  background-color: #fffbeb;
-  color: #b45309;
-  border: 1px solid #fde68a;
-}
+.bank-bcp { background-color: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.bank-bbva { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.bank-interbank { background-color: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
 
-.bank-bbva {
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  border: 1px solid #bfdbfe;
-}
-
-.bank-interbank {
-  background-color: #f0fdf4;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
-}
-
-/* Botones de acción flotantes minimalistas */
 .tx-actions-overlay {
   display: flex;
   gap: 6px;
-  margin-left: 8px;
 }
 
 .action-icon-btn {
   background: none;
   border: none;
-  font-size: 0.9rem;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 8px;
-  transition: background-color 0.1s;
-}
-
-.action-icon-btn:hover {
-  background-color: #e2e8f0;
+  padding: 4px;
 }
