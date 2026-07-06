@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  api-rest:
+    build: ./api-rest
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+
+  api-grpc:
+    build: ./api-grpc
+    ports:
+      - "50051:50051"
+
+  api-graphql:
+    build: ./api-graphql
+    ports:
+      - "4000:4000"
+
+  api-eventos:
+    build: ./api-eventos
+    ports:
+      - "3004:3004"
+
+  api-oauth:
+    build: ./api-oauth
+    ports:
+      - "3005:3005"

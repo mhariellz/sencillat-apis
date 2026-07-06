@@ -1,0 +1,17 @@
+syntax = "proto3";
+package sencillat;
+
+service Clasificador {
+  rpc ClasificarTransaccion (TransaccionRequest) returns (CategoriaResponse);
+}
+
+message TransaccionRequest {
+  string descripcion = 1;
+  double monto = 2;
+  string comercio = 3;
+}
+
+message CategoriaResponse {
+  string categoria = 1;
+  double confianza = 2;
+}
