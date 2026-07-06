@@ -1,5 +1,7 @@
+// index.js
 const { ApolloServer } = require('@apollo/server');
 const { startStandaloneServer } = require('@apollo/server/standalone');
+const { resolvers } = require('./resolvers'); // 👈 Importa los resolvers
 
 const typeDefs = `#graphql
   type CategoriaConsumo {
@@ -17,22 +19,13 @@ const typeDefs = `#graphql
   }
 `;
 
-const resolvers = {
-  Query: {
-    resumenPeriodo: (_, { mes }) => ({
-      mes,
-      totalGastado: 1250.00,
-      distribucion: [
-        { nombre: 'Alimentación', porcentaje: 45.0, monto: 562.50 },
-        { nombre: 'Servicios', porcentaje: 30.0, monto: 375.00 },
-        { nombre: 'Entretenimiento', porcentaje: 15.0, monto: 187.50 },
-        { nombre: 'Otros', porcentaje: 10.0, monto: 125.00 }
-      ]
-    })
-  }
-};
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-const server = new ApolloServer({ typeDefs, resolvers });
-startStandaloneServer(server, { listen: { port: 4000 } }).then(({ url }) => {
-  console.log(`🚀 API GraphQL lista en: ${url}`);
+startStandaloneServer(server, {
+  listen: { port: 4000 }
+}).then(({ url }) => {
+  console.log(`🚀 GraphQL Server ready at ${url}`);
 });
